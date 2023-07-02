@@ -1,11 +1,11 @@
 # Proxy Manager Documentation
-This documentation provides information about the ProxyManager class and how to use it for managing and checking proxies in Python.
+This documentation provides information about the ProxyManager and how to use it for managing and checking proxies in Python.
 
 ## Introduction
-The ProxyManager class is a Python script that enables users to retrieve and manage proxies from the website https://free-proxy-list.net/. It allows users to filter proxies based on the protocol (HTTP or HTTPS) and also perform a check on proxy status.
+The ProxyManager is a Python script that enables users to retrieve and manage proxies from the website https://free-proxy-list.net/. It allows users to filter proxies based on the protocol (HTTP or HTTPS) and also perform a check on proxy status.
 
 ## Prerequisites
-To use the ProxyManager class, you need the following:
+To use the ProxyManager, you need the following:
 - Python 3.x installed on your system.
 - Required Python packages: requests, bs4 (BeautifulSoup).
 
@@ -15,11 +15,17 @@ pip install requests beautifulsoup4
 ```
 
 ## Getting Started
-To use the ProxyManager class, follow the steps below:
-1. Import the ProxyManager class into your Python script.
-2. Create an instance of the ProxyManager class.
-3. Call the `setup()` method with an optional protocol parameter (to filter proxies based on protocol).
-4. Use the available methods to get the proxy list, retrieve a random proxy, and check the status of a proxy.
+**Installation**\
+To install the ProxyManager, you can use either wget or curl:
+> **Using wget:**
+> ```shell
+> wget https://raw.githubusercontent.com/Rann-Studio/Proxy-Manager/main/ProxyManager.py -O Proxy.py
+> ```
+
+> **Using curl:**
+> ```shell
+> curl https://raw.githubusercontent.com/Rann-Studio/Proxy-Manager/main/ProxyManager.py -O Proxy.py
+> ```
 
 ## Usage
 **Importing ProxyManager**
