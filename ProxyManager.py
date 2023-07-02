@@ -8,33 +8,40 @@ class ProxyManager:
         self.proxies = []
 
     def setup(self, protocol=None):
-        response = requests.get('https://free-proxy-list.net/')
-        soup = BeautifulSoup(response.text, 'html.parser')
+        try:
+            response = requests.get('https://free-proxy-list.net/', timeout=10)
+            soup = BeautifulSoup(response.text, 'html.parser')
 
-        table = soup.find('table')
-        rows = table.find_all('tr')
+            table = soup.find('table')
+            rows = table.find_all('tr')
 
-        proxy_list = []
-        for row in rows[1:]:
-            columns = row.find_all('td')
-            ip = columns[0].text
-            port = columns[1].text
-            anonymity = columns[4].text
-            proxy_protocol = 'https' if columns[6].text.lower() == 'yes' else 'http'
-            proxy_url = f'{proxy_protocol}://{ip}:{port}'
+            proxy_list = []
+            for row in rows[1:]:
+                columns = row.find_all('td')
+                ip = columns[0].text
+                port = columns[1].text
+                anonymity = columns[4].text
+                proxy_protocol = 'https' if columns[6].text.lower() == 'yes' else 'http'
+                proxy_url = f'{proxy_protocol}://{ip}:{port}'
 
-            proxy_info = {
-                'ip': ip,
-                'port': port,
-                'anonymity': anonymity,
-                'protocol': proxy_protocol,
-                'proxy_url': proxy_url
-            }
+                proxy_info = {
+                    'ip': ip,
+                    'port': port,
+                    'anonymity': anonymity,
+                    'protocol': proxy_protocol,
+                    'proxy_url': proxy_url
+                }
 
-            if not protocol or proxy_protocol == protocol:
-                proxy_list.append(proxy_info)
+                if not protocol or proxy_protocol == protocol:
+                    proxy_list.append(proxy_info)
 
-        self.proxies = proxy_list
+            self.proxies = proxy_list
+
+        except (requests.ConnectionError, requests.Timeout):
+            raise SystemExit('Connection error or timeout occurred.')
+        
+        except Exception as err:
+            raise SystemExit(err)
 
     def check_proxy(self, proxy_url, timeout=5):
         protocol = proxy_url.split(':')[0]
@@ -46,6 +53,9 @@ class ProxyManager:
                 return True
         except (requests.ConnectionError, requests.Timeout):
             pass
+
+        except Exception as err:
+            raise SystemExit(err)
 
         return False
 
