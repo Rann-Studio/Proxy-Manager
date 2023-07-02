@@ -19,12 +19,12 @@ pip install requests beautifulsoup4
 To install the ProxyManager, you can use either wget or curl:
 > **Using wget:**
 > ```shell
-> wget https://raw.githubusercontent.com/Rann-Studio/Proxy-Manager/main/ProxyManager.py -O Proxy.py
+> wget https://raw.githubusercontent.com/Rann-Studio/Proxy-Manager/main/ProxyManager.py -O ProxyManager.py
 > ```
 
 > **Using curl:**
 > ```shell
-> curl https://raw.githubusercontent.com/Rann-Studio/Proxy-Manager/main/ProxyManager.py -O Proxy.py
+> curl https://raw.githubusercontent.com/Rann-Studio/Proxy-Manager/main/ProxyManager.py -O ProxyManager.py
 > ```
 
 ## Usage
