@@ -46,9 +46,9 @@ print('Proxies:', proxies)
 ```
 
 **Getting a Random Proxy**\
-You can retrieve a random proxy from the fetched list using the get_proxy() method. The method returns a randomly chosen proxy information dictionary.
+You can retrieve a random proxy from the fetched list using the `get_random_proxy()` method. The method returns a randomly chosen proxy information dictionary.
 ```python
-random_proxy = proxy_manager.get_proxy()
+random_proxy = proxy_manager.get_random_proxy()
 print('Random Proxy:', random_proxy)
 ```
 
@@ -75,7 +75,7 @@ proxies = proxy_manager.get_proxies()
 print('Proxies:', proxies)
 
 # Get a random proxy
-random_proxy = proxy_manager.get_proxy()
+random_proxy = proxy_manager.get_random_proxy()
 print('Random Proxy:', random_proxy)
 
 # Check the status of the random proxy
