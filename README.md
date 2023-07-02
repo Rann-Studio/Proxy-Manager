@@ -85,8 +85,8 @@ from ProxyManager import ProxyManager
 # Create an instance of ProxyManager
 proxy_manager = ProxyManager()
 
-# Fetch and store HTTPS proxies
-proxy_manager.setup(protocol='https')
+# Fetch and store HTTP proxies
+proxy_manager.setup(protocol='http')
 
 # Get the list of proxies
 proxies = proxy_manager.get_proxies()
