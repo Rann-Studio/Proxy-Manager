@@ -52,6 +52,6 @@ class ProxyManager:
     def get_proxies(self):
         return self.proxies
 
-    def get_proxy(self):
+    def get_random_proxy(self):
         random_proxy = [proxy for proxy in self.proxies]
         return random.choice(random_proxy)
