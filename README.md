@@ -50,12 +50,20 @@ You can get the list of proxies that have been fetched and stored using the `get
 proxies = proxy_manager.get_proxies()
 print('Proxies:', proxies)
 ```
+Output:
+```
+Proxies: [{'ip': '154.65.39.7', 'port': '80', 'anonymity': 'elite proxy', 'protocol': 'http', 'proxy_url': 'http://154.65.39.7:80'}, ... , {'ip': '103.176.108.105', 'port': '1433', 'anonymity': 'elite proxy', 'protocol': 'http', 'proxy_url': 'http://103.176.108.105:1433'}]
+```
 
 **Getting a Random Proxy**\
 You can retrieve a random proxy from the fetched list using the `get_random_proxy()` method. The method returns a randomly chosen proxy information dictionary.
 ```python
 random_proxy = proxy_manager.get_random_proxy()
 print('Random Proxy:', random_proxy)
+```
+Output:
+```
+Random Proxy: {'ip': '50.206.111.90', 'port': '80', 'anonymity': 'anonymous', 'protocol': 'http', 'proxy_url': 'http://50.206.111.90:80'}
 ```
 
 **Checking Proxy Status**\
@@ -64,10 +72,14 @@ You can check the status of a specific proxy using the `check_proxy()` method. T
 proxy_status = proxy_manager.check_proxy(random_proxy['proxy_url'])
 print('Proxy status:', 'Up!' if proxy_status else 'Down')
 ```
+Output:
+```
+Proxy status: Up!
+```
 
 **Example Usage**
 ```python
-# Import the ProxyManager class
+# Import the ProxyManager
 from ProxyManager import ProxyManager
 
 # Create an instance of ProxyManager
